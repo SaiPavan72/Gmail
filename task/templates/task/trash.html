@@ -1,0 +1,19 @@
+<body bgcolor="#F75D59">
+{% for each in data %}
+<b>from:</b>{{ each.sender}}<br><b>to:</b>{{each.reciever}}<br><b>body:</b>{{each.body}}<br>
+<b>subject:</b>{{each.subject}}
+<form action="/task/{{each.id}}/un_trash/" method="post">
+    {% csrf_token %}
+    <input type="checkbox" name="is_trash" {% if appication.is_verified %}make trash{% endif %}/>
+    <input type="submit" value="untrash">
+</form>
+<form action="/task/{{each.id}}/delete/" method="post">
+    {% csrf_token %}
+    <input type="checkbox" name="is_trash" {% if appication.is_verified %}make trash{% endif %}/>
+    <input type="submit" value="delete">
+</form>
+
+{% endfor %}
+
+<a href="/task/view/">Back</a><br>
+<a href="/task/logout/">logout</a><br>

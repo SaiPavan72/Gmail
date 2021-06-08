@@ -1,0 +1,13 @@
+{% if error %}
+{{error}}
+{% endif %}
+<h2> Gmail app </h2>
+<body bgcolor="#F75D59">
+<form action="/task/login_validate/" method="post">
+    {% csrf_token %}
+    <b>Email Address</b><input type="email" name="email"><br>
+    <b>Password</b><input type="password" name="password"><br>
+    <input type="submit" value="login"><br>
+</form>
+
+Create an account <a href="/task/register/">registration</a><br>

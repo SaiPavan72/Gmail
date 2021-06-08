@@ -1,0 +1,12 @@
+<form action="/task/save_mail/" method="post">
+    <body bgcolor="#F75D59">
+    {% csrf_token %}
+    <b>To :</b><input type="email" name="email"><br>
+    <b>Subject :</b><input type="text" name="subject"><br>
+    <b>Body :</b><input type="text" name="message"><br>
+
+    <input type="submit" name="send" value="submit"><br> <input type="submit" name="send" value="cancel"><br>
+
+</form>
+<a href="/task/view/">Back</a><br>
+<a href="/task/logout/">logout</a><br>

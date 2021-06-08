@@ -1,0 +1,16 @@
+<body bgcolor="#F75D59">
+{% for each in mail %}
+<!--<b>sender :</b> {{each.sender}}<br>-->
+<b>receiver :</b>{{each.reciever}}<br>
+<b>subject :</b>  {{each.subject}}<br>
+<b>body :</b> {{each.body}}<br>
+
+trash:<form action="/task/{{each.id}}/make_trash/" method="post">
+    {% csrf_token %}
+    <input type="checkbox" name="is_trash" {% if appication.is_verified %}make trash{% endif %}/>
+    <input type="submit" value="submit">
+</form>
+<hr>
+{% endfor %}
+<a href="/task/view/">Back</a><br>
+<a href="/task/logout/">logout</a><br>
